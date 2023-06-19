@@ -121,7 +121,7 @@ function handleListItemClick(event) { //function handles click event on book ite
   for (const node of pathArray) {
     if (active) break;
 
-    if (node?.dataset?.preview) { //Retrieves clicked element and traverses up DOM tree to find ancestor element with 'data-preview' attribute.
+    if (node?.dataset?.preview) { //Retrieves clicked element and finds ancestor element with 'data-preview' attribute.
       for (const singleBook of books) {
         if (singleBook.id === node?.dataset?.preview) { //Matches clicked book with corresponding book object from books array using 'dataset.preview' value.
           active = singleBook;
@@ -146,6 +146,10 @@ document.querySelector('[data-search-cancel]').addEventListener('click', () => {
   document.querySelector('[data-search-overlay]').open = false;
   document.querySelector('[data-search-form]').reset();
 });
+
+document.querySelector('[data-list-close]').addEventListener('click', () => {
+    document.querySelector('[data-list-active]').open = false;
+  });
 
 document.querySelector('[data-settings-cancel]').addEventListener('click', () => {
   document.querySelector('[data-settings-overlay]').open = false;
