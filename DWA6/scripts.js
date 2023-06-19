@@ -2,10 +2,7 @@
 
 import { BOOKS_PER_PAGE, authors, genres, books } from "./data.js";
 
-// Dark/Light mode toggle
-
 /**
- * Handles the light/dark mode toggle functionality based on user selection.
  * @param selectedTheme - The selected theme ('day' or 'night').
  * @type {string} 
  */
@@ -26,15 +23,12 @@ const saveButton = document.querySelector("[data-settings-save]");
 const cancelButton = document.querySelector("[data-settings-cancel]");
 const settingsOverlay = document.querySelector("[data-settings-overlay]");
 
-// Retrieve the saved theme from localStorage, defaulting to "day" if not found
 const selectedTheme = localStorage.getItem("selectedTheme") || "day";
 const { dark, light } = themeSettings[selectedTheme];
 
-// Apply the saved theme on page load
 document.body.style.setProperty("--color-dark", dark);
 document.body.style.setProperty("--color-light", light);
 
-// Set the themeSelect dropdown to the saved theme
 themeSelect.value = selectedTheme;
 
 saveButton.addEventListener("click", () => {
@@ -60,7 +54,7 @@ openSettingsButton.addEventListener("click", () => {
 });
 
 
-// Book Previews
+// Book Preview
 
 const matches = books;
 const currentPage = 1;
@@ -292,7 +286,7 @@ cancelSearchButton.addEventListener("click", () => {
   searchBar.style.display = "none";
 })
 
-// Book Results Filters
+// Filters
 
 const searchForm = document.querySelector("[data-search-form]");
 
@@ -350,11 +344,7 @@ function createPreviewFilters(author, image, title) {
   return element
 }
 
-  //  Scroll to Top
-
   window.scrollTo({ top: 0, behavior: "smooth" });
-
-  // Close Search Overlay
 
   searchBar.close();
 });
